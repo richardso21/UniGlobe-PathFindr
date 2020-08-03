@@ -14,6 +14,15 @@ function bake_cookie(obj) {
 function read_cookie() {
   return JSON.parse(document.cookie);
 }
+if (document.cookie === "") {
+  markers = [
+    {
+      position: home,
+      type: "current",
+    },
+  ];
+  bake_cookie(markers);
+}
 markers = read_cookie();
 // cookie funcs <<<
 
@@ -101,13 +110,6 @@ function initMap() {
     }
   };
 }
-
-// markers = [
-//   {
-//     position: home,
-//     type: "current",
-//   },
-// ];
 
 function setAllMarkers() {
   markers.forEach((elem) => {
