@@ -66,6 +66,7 @@ function initMap() {
     popup.style.display = "none";
     placeholderMarker.setMap(null);
     placeholderMarker = undefined;
+    button2.style.visibility = "hidden";
     google.maps.event.removeListener(listener);
   };
 
@@ -74,6 +75,7 @@ function initMap() {
       popup.style.display = "none";
       placeholderMarker.setMap(null);
       placeholderMarker = undefined;
+      button2.style.visibility = "hidden";
       google.maps.event.removeListener(listener);
     }
   };
@@ -82,23 +84,31 @@ function initMap() {
   const button2 = document.getElementById("popup2-button");
   const span2 = document.getElementById("close2");
   const done = document.getElementById("done-button");
-
+  
   button2.style.visibility = "hidden";
-
+  
   button2.onclick = function () {
     popup2.style.display = "block";
     popup.style.display = "none";
     placeholderMarker.setMap(null);
     placeholderMarker = undefined;
+    button2.style.visibility = "hidden";
   };
-
-  done.onclick = function () {
+  
+  done.onclick = (event) => {
+    event.preventDefault();
+    let type;
+    const radios = document.querySelectorAll(".resource");
+    for (const radio of radios) {
+      if (radio.checked) {
+        type = radio.value;
+        break;
+      }
+    }
+    console.log(type);
     popup2.style.display = "none";
-    // R I  C H  A R D here we can put in the function that makes it clear and reset all markers
-    // i realized how i implement it means i cant really do that lol
-    // i can add markers though, yeah whatever makes it work
-    newMarker();
-  };
+    newMarker(pressedLocation, type);
+  }
 
   span2.onclick = function () {
     popup2.style.display = "none";
@@ -157,8 +167,10 @@ function setIcon(type) {
       break;
     case "shelters":
       iconPth = "img/shelters.png";
+      break;
     case "donation":
       iconPth = "img/donation.png";
+      break;
     default:
       iconPth = null;
       break;

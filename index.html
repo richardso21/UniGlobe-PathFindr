@@ -8,11 +8,11 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    <title>PathFindr</title>
+    <title>PathFindR</title>
   </head>
   <body>
     <div class="title"><span>PathFindR</span></div>
-    <button class="popup-button" id="popup-button">Add Resource</button>
+    <!-- <button class="popup-button" id="popup-button">Add Resource</button> -->
     <div id="popup-id" class="popup">
       <div class="popup-stuff">
         <span id="close">&times;</span>
@@ -20,45 +20,48 @@
         <button class="popup2-button" id="popup2-button">Next</button>
       </div>
     </div>
-    <div class="legend">
-      <h3>Legend</h3>
-      <div id="popup2-id" class="popup2">
-        <div class="popup2-stuff">
-          <span id="close2">&times;</span>
-          <p>Select the type of resource you are adding:</p>
-          <form action="#">
-            <input type="radio" name="resource" id="bathrooms"/>
-            <img src="img/bathrooms.png" alt="" />
-            <label for="bathrooms">Bathrooms</label><br />
+    <div id="popup2-id" class="popup2">
+      <div class="popup2-stuff">
+        <span id="close2">&times;</span>
+        <p>Select the type of resource you are adding:</p>
+        <form action="#">
+          <input type="radio" name="resource" class="resource" value="bathrooms"/>
+          <img src="img/bathrooms.png" alt="" />
+          <label for="resource">Public Bathrooms</label><br />
 
-            <input type="radio" name="resource" id="water" />
-            <img src="img/water.png" alt="" />
-            <label for="bathrooms">Water</label><br />
+          <input type="radio" name="resource" class="resource" value="water" />
+          <img src="img/water.png" alt="" />
+          <label for="resource">Drinking Water</label><br />
 
-            <input type="radio" name="resource" id="kitchens" />
-            <img src="img/kitchens.png" alt="" />
-            <label for="bathrooms">Kitchens</label><br />
+          <input type="radio" name="resource" class="resource" value="kitchens" />
+          <img src="img/kitchens.png" alt="" />
+          <label for="resource">Soup Kitchens</label><br />
 
-            <input type="radio" name="resource" id="shelters" />
-            <img src="img/shelters.png" alt="" />
-            <label for="bathrooms">Shelters</label><br />
+          <input type="radio" name="resource" class="resource" value="shelters" />
+          <img src="img/shelters.png" alt="" />
+          <label for="resource">Shelters</label><br />
 
-            <input type="radio" name="resource" id="donation" />
-            <img src="img/donation.png" alt="" />
-            <label for="bathrooms">Donation</label><br />
-            <input
-              type="submit"
-              value="Submit"
-              class="done-button"
-              id="done-button"/>
-          </form>
-        </div>
+          <input type="radio" name="resource" class="resource" value="donation" />
+          <img src="img/donation.png" alt="" />
+          <label for="resource">Donations/Charities</label><br />
+          <input
+            type="submit"
+            value="Submit"
+            class="done-button"
+            id="done-button"/>
+        </form>
       </div>
-      <div><img src="img/bathrooms.png" alt="" />Bathrooms</div>
-      <div><img src="img/water.png" alt="" />Water</div>
-      <div><img src="img/kitchens.png" alt="" />Kitchens</div>
-      <div><img src="img/shelters.png" alt="" />Shelters</div>
-      <div><img src="img/donation.png" alt="" />Donation</div>
+    </div>
+    <div class="container">
+      <button class="popup-button" id="popup-button">Add Resource</button>
+      <div class="legend">
+        <h3>Legend</h3>
+        <div class="legend-text"><img src="img/bathrooms.png" alt=""/>Public Bathrooms</div>
+        <div class="legend-text"><img src="img/water.png" alt=""/>Drinking Water</div>
+        <div class="legend-text"><img src="img/kitchens.png" alt=""/>Soup Kitchens</div>
+        <div class="legend-text"><img src="img/shelters.png" alt="" />Shelters</div>
+        <div class="legend-text"><img src="img/donation.png" alt=""/>Donations/Charities</div>
+      </div>
     </div>
     <div id="map"></div>
     <script
