@@ -64,7 +64,7 @@ function initMap() {
 
   span.onclick = function () {
     popup.style.display = "none";
-    placeholderMarker.setMap(null);
+    if (placeholderMarker !== undefined) placeholderMarker.setMap(null);
     placeholderMarker = undefined;
     button2.style.visibility = "hidden";
     google.maps.event.removeListener(listener);
@@ -73,7 +73,7 @@ function initMap() {
   window.onclick = function (event) {
     if (event.target == popup) {
       popup.style.display = "none";
-      placeholderMarker.setMap(null);
+      if (placeholderMarker !== undefined) placeholderMarker.setMap(null);
       placeholderMarker = undefined;
       button2.style.visibility = "hidden";
       google.maps.event.removeListener(listener);
@@ -84,17 +84,17 @@ function initMap() {
   const button2 = document.getElementById("popup2-button");
   const span2 = document.getElementById("close2");
   const done = document.getElementById("done-button");
-  
+
   button2.style.visibility = "hidden";
-  
+
   button2.onclick = function () {
     popup2.style.display = "block";
     popup.style.display = "none";
-    placeholderMarker.setMap(null);
+    if (placeholderMarker !== undefined) placeholderMarker.setMap(null);
     placeholderMarker = undefined;
     button2.style.visibility = "hidden";
   };
-  
+
   done.onclick = (event) => {
     event.preventDefault();
     let type;
@@ -108,7 +108,10 @@ function initMap() {
     console.log(type);
     popup2.style.display = "none";
     newMarker(pressedLocation, type);
-  }
+    if (placeholderMarker !== undefined) placeholderMarker.setMap(null);
+    placeholderMarker = undefined;
+    google.maps.event.removeListener(listener);
+  };
 
   span2.onclick = function () {
     popup2.style.display = "none";
@@ -129,6 +132,13 @@ function setAllMarkers() {
       const marker = new google.maps.Marker({
         position: elem.position,
         map: map,
+        title: "Current Location",
+      });
+      marker.addListener("click", () => {
+        const infoWindow = new google.maps.InfoWindow({
+          content: "Current Location",
+        });
+        infoWindow.open(map, marker);
       });
     } else {
       const marker = new google.maps.Marker({
@@ -170,6 +180,12 @@ function setIcon(type) {
       break;
     case "donation":
       iconPth = "img/donation.png";
+      break;
+    case "test":
+      iconPth = "img/test.png";
+      break;
+    case "mask":
+      iconPth = "img/mask.png";
       break;
     default:
       iconPth = null;
