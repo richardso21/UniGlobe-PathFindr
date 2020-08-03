@@ -1,17 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
     <title>PathFindr</title>
-</head>
-<body>
+  </head>
+  <body>
+    <div class="title"><span>PathFindR</span></div>
+    <button class="popup-button" id="popup-button">Add Resource</button>
+    <div id="popup-id" class="popup">
+      <div class="popup-stuff">
+        <span id="close">&times;</span>
+        <p>Click on a map location to add a marker for the resource.</p>
+        <button class="popup2-button" id="popup2-button">Next</button>
+      </div>
+    </div>
+    <div class="legend">
+      <h3>Legend</h3>
+      <div id="popup2-id" class="popup2">
+        <div class="popup2-stuff">
+          <span id="close2">&times;</span>
+          <p>Select the type of resource you are adding:</p>
+          <form action="#">
+            <input type="radio" name="resource" id="bathrooms"/>
+            <img src="img/bathrooms.png" alt="" />
+            <label for="bathrooms">Bathrooms</label><br />
+
+            <input type="radio" name="resource" id="water" />
+            <img src="img/water.png" alt="" />
+            <label for="bathrooms">Water</label><br />
+
+            <input type="radio" name="resource" id="kitchens" />
+            <img src="img/kitchens.png" alt="" />
+            <label for="bathrooms">Kitchens</label><br />
+
+            <input type="radio" name="resource" id="shelters" />
+            <img src="img/shelters.png" alt="" />
+            <label for="bathrooms">Shelters</label><br />
+
+            <input type="radio" name="resource" id="donation" />
+            <img src="img/donation.png" alt="" />
+            <label for="bathrooms">Donation</label><br />
+            <input
+              type="submit"
+              value="Submit"
+              class="done-button"
+              id="done-button"/>
+          </form>
+        </div>
+      </div>
+      <div><img src="img/bathrooms.png" alt="" />Bathrooms</div>
+      <div><img src="img/water.png" alt="" />Water</div>
+      <div><img src="img/kitchens.png" alt="" />Kitchens</div>
+      <div><img src="img/shelters.png" alt="" />Shelters</div>
+      <div><img src="img/donation.png" alt="" />Donation</div>
+    </div>
     <div id="map"></div>
-    <h1>testing</h1>
-    <script defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeeBtjqpNKR9Nbc4FDfFu62k6DanwKkRU&v=weekly&callback=initMap&map_ids=27de865f9cc32b67">
-    </script>
+    <script
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAeeBtjqpNKR9Nbc4FDfFu62k6DanwKkRU&v=weekly&callback=initMap&map_ids=27de865f9cc32b67"
+    ></script>
     <script src="index.js"></script>
-</body>
+  </body>
 </html>
