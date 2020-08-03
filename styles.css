@@ -17,6 +17,7 @@ body {
   top: 0;
   left: 0;
   background: darkcyan;
+  color: white;
   z-index: 2;
   padding: 1rem 2rem;
   box-shadow: 0 0 10px black;
@@ -42,6 +43,7 @@ body {
     border-radius: 5px;
     font-size: 18px;
     background-color: darkcyan;
+    color: white;
     transition-duration: 0.4s;
 }
 .popup-button:hover{
@@ -118,6 +120,7 @@ body {
 
 .legend {
   background: darkcyan;
+  color: white;
   border-radius: 10px;
   box-shadow: 0 0 5px black;
   z-index: 2;
